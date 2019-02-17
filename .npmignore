@@ -1,0 +1,8 @@
+.git
+.gitignore
+.idea
+node_modules
+
+test
+src
+jest.config.js

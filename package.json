@@ -1,0 +1,20 @@
+{
+  "name": "orql-parser",
+  "version": "0.0.1",
+  "description": "orql parser",
+  "main": "lib/Parser.js",
+  "repository": "https://www.github.com/orql/orql-parser",
+  "author": "qiushijie",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest",
+    "coverage": "jest --coverage",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.5",
+    "jest": "^24.1.0",
+    "ts-jest": "^23.10.5",
+    "typescript": "^3.3.3"
+  }
+}
