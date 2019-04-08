@@ -1,8 +1,9 @@
 {
   "name": "orql-parser",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "orql parser",
   "main": "lib/Parser.js",
+  "types": "lib/Parser.d.ts",
   "repository": "https://www.github.com/orql/orql-parser",
   "author": "qiushijie",
   "license": "MIT",

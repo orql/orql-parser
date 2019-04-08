@@ -1,7 +1,7 @@
 import {
   OrqlAllItem,
   OrqlCompareExp,
-  OrqlCompareOp, OrqlIgnoreItem,
+  OrqlCompareOp, OrqlExp, OrqlIgnoreItem,
   OrqlLogicExp,
   OrqlLogicOp,
   OrqlNestExp,
@@ -108,4 +108,10 @@ test('test nest exp', () => {
   const orql = 'query user((id = $id)): {*}';
   const node = Parser.parse(orql);
   expect(node.item.where!.exp instanceof OrqlNestExp).toBeTruthy();
+});
+
+test('test parse exp string', () => {
+  const exp = 'id = $id';
+  const node = Parser.parseExp(exp);
+  expect(node instanceof OrqlExp).toBeTruthy();
 });

@@ -1,13 +1,16 @@
 import Lexer from './Lexer';
 import Token, {TokenType} from './Token';
 import {
-  OrqlAllItem, OrqlColumn,
+  OrqlAllItem,
+  OrqlColumn,
   OrqlCompareExp,
   OrqlCompareOp,
-  OrqlExp, OrqlIgnoreItem,
+  OrqlExp,
+  OrqlIgnoreItem,
   OrqlItem,
   OrqlLogicExp,
-  OrqlLogicOp, OrqlNestExp,
+  OrqlLogicOp,
+  OrqlNestExp,
   OrqlNode,
   OrqlOrder,
   OrqlParam,
@@ -19,6 +22,7 @@ export = class Parser {
   private lexer: Lexer;
   private token: Token;
   private static caches: {[orql: string]: OrqlNode} = {};
+  private static expCaches: {[exp: string]: OrqlExp} = {};
   constructor(orql: string) {
     this.lexer = new Lexer(orql);
     this.token = this.lexer.nextToken();
@@ -29,6 +33,13 @@ export = class Parser {
     const node = parser.visit();
     this.caches[orql] = node;
     return node;
+  }
+  static parseExp(exp: string): OrqlExp {
+    if (this.expCaches[exp]) return this.expCaches[exp];
+    const parser = new Parser(exp);
+    const orqlExp = parser.visitExp();
+    this.expCaches[exp] = exp;
+    return orqlExp;
   }
   private matchToken(type: TokenType): string {
     if (this.token.type != type) throw new Error(`expect ${type} actual ${this.token.type}`);
