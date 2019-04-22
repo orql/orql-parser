@@ -113,5 +113,6 @@ test('test nest exp', () => {
 test('test parse exp string', () => {
   const exp = 'id = $id';
   const node = Parser.parseExp(exp);
+  console.log(node);
   expect(node instanceof OrqlExp).toBeTruthy();
 });

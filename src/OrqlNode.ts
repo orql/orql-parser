@@ -124,11 +124,11 @@ export enum OrqlLogicOp {
 }
 
 export enum OrqlCompareOp {
-  Ge,
-  Gt,
-  Le,
-  Lt,
-  Eq,
-  Ne,
-  Like
+  Ge = '>=',
+  Gt = '>',
+  Le = '<=',
+  Lt = '<',
+  Eq = '=',
+  Ne = '!=',
+  Like = 'like'
 }
