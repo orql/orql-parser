@@ -1,6 +1,6 @@
 {
   "name": "orql-parser",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "orql parser",
   "main": "lib/Parser.js",
   "types": "lib/Parser.d.ts",
