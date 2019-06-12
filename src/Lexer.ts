@@ -84,7 +84,7 @@ class Lexer {
     let tmp = '';
     while (!this.end()) {
       const current = this.currentChar();
-      if (!Lexer.isLetter(current) && !Lexer.isDigit(current) && current != '_') break;
+      if (!Lexer.isLetter(current) && !Lexer.isDigit(current) && current != '_' && current != '.') break;
       this.index ++;
       tmp += current;
     }

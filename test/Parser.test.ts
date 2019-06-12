@@ -116,3 +116,9 @@ test('test parse exp string', () => {
   console.log(node);
   expect(node instanceof OrqlExp).toBeTruthy();
 });
+
+test('test param dot', () => {
+  const orql = 'delete user(id = $user.id)';
+  const node = Parser.parse(orql);
+  expect(((node.item.where!.exp as OrqlCompareExp).right as OrqlParam).name).toBe('user.id');
+});
